@@ -1,0 +1,47 @@
+backend:
+  name: github
+  repo: dialogwerkns/dialogwerk-website
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+
+locale: de
+
+collections:
+  - name: aktuelles
+    label: Aktuelles & Impulse
+    label_singular: Artikel
+    folder: src/content/aktuelles
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Kurzbeschreibung (SEO)", name: "description", widget: "text" }
+      - {
+          label: "Datum",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+          date_format: "DD.MM.YYYY",
+          time_format: false,
+        }
+      - label: "Kategorie"
+        name: "category"
+        widget: "select"
+        options:
+          - "Compliance & Strategie"
+          - "Betriebsrat & Mitbestimmung"
+          - "Führung & Compliance"
+          - "Arbeitsschutz"
+          - "Sozialversicherung"
+          - "Coaching"
+          - "Allgemein"
+      - { label: "Tags", name: "tags", widget: "list", default: [] }
+      - {
+          label: "Entwurf (nicht veröffentlichen)",
+          name: "draft",
+          widget: "boolean",
+          default: false,
+        }
+      - { label: "Inhalt", name: "body", widget: "markdown" }

@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('aktuelles', ({ data }) => !data.draft);
+  return articles.map(article => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+
+function formatDate(dateStr: string) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+<BaseLayout title={article.data.title} description={article.data.description}>
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-gray-500 mb-8">
+      <a href="/" class="hover:text-blue-700">Home</a>
+      <span class="mx-2">/</span>
+      <a href="/aktuelles" class="hover:text-blue-700">Aktuelles</a>
+      <span class="mx-2">/</span>
+      <span class="text-gray-800">{article.data.title}</span>
+    </nav>
+
+    <!-- Category + Date -->
+    <div class="flex items-center gap-3 mb-4">
+      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">
+        {article.data.category}
+      </span>
+      <span class="text-gray-400 text-sm">{formatDate(article.data.date)}</span>
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+      {article.data.title}
+    </h1>
+
+    <!-- Content -->
+    <div class="prose prose-lg prose-blue max-w-none
+      prose-headings:font-bold prose-headings:text-gray-900
+      prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+      prose-p:text-gray-700 prose-p:leading-relaxed
+      prose-strong:text-gray-900
+      prose-li:text-gray-700
+      prose-a:text-blue-700 prose-a:no-underline hover:prose-a:underline">
+      <Content />
+    </div>
+
+    <!-- CTA Box -->
+    <div class="mt-12 bg-blue-50 border border-blue-200 rounded-xl p-6">
+      <h3 class="text-lg font-bold text-blue-900 mb-2">Interessantes Thema?</h3>
+      <p class="text-blue-800 text-sm mb-4">Lassen Sie uns darüber sprechen, wie wir diesen Impuls in Ihrem Unternehmen umsetzen können.</p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/termin" class="bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+          Termin anfragen
+        </a>
+        <a
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=https://dialogwerk-niedersachsen.de/aktuelles/${article.slug}`}
+          target="_blank"
+          rel="noopener"
+          class="bg-white border border-blue-300 text-blue-700 text-sm font-semibold px-4 py-2 rounded-lg hover:bg-blue-50 transition"
+        >
+          Auf LinkedIn teilen
+        </a>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    {article.data.tags.length > 0 && (
+      <div class="mt-8 flex flex-wrap gap-2">
+        {article.data.tags.map(tag => (
+          <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">#{tag}</span>
+        ))}
+      </div>
+    )}
+
+    <!-- Back link -->
+    <a href="/aktuelles" class="inline-flex items-center gap-2 mt-10 text-blue-700 hover:underline text-sm font-medium">
+      ← Zurück zur Übersicht
+    </a>
+  </div>
+</BaseLayout>
