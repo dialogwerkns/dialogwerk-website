@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Termin anfragen" description="Vereinbaren Sie einen Termin mit Dialogwerk Niedersachsen – unverbindliches Vorgespräch zu Moderation, Coaching, Konfliktklärung und mehr.">
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <div class="text-center mb-10">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Termin anfragen</h1>
+      <p class="text-gray-600 text-lg">Vereinbaren Sie ein unverbindliches Vorgespräch – kostenfrei und vertraulich.</p>
+    </div>
+    <div class="bg-white border border-gray-200 rounded-xl p-8">
+      <form name="termin" method="POST" data-netlify="true" class="space-y-5">
+        <input type="hidden" name="form-name" value="termin" />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1" for="name">Ihr Name *</label>
+            <input type="text" id="name" name="name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1" for="organisation">Organisation / Unternehmen</label>
+            <input type="text" id="organisation" name="organisation" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1" for="email">E-Mail *</label>
+            <input type="email" id="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1" for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="leistung">Gewünschte Leistung</label>
+          <select id="leistung" name="leistung" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">Bitte wählen...</option>
+            <option>Mediation & Konfliktklärung</option>
+            <option>Workshop-Moderation</option>
+            <option>Coaching & Einzelcoaching</option>
+            <option>Arbeitsschutz-Schulung</option>
+            <option>Sozialversicherungsrecht</option>
+            <option>Betriebsratsschulung</option>
+            <option>Strategie-Check BetrVG</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="nachricht">Kurze Beschreibung Ihres Anliegens</label>
+          <textarea id="nachricht" name="nachricht" rows="4" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Was beschäftigt Sie? Wir melden uns innerhalb von 24 Stunden."></textarea>
+        </div>
+        <button type="submit" class="bg-blue-700 text-white font-bold px-8 py-3 rounded-xl hover:bg-blue-800 transition w-full">
+          Anfrage senden ✓
+        </button>
+        <p class="text-xs text-gray-400 text-center">Wir melden uns innerhalb von 24 Stunden. Alle Angaben werden vertraulich behandelt.</p>
+      </form>
+    </div>
+  </div>
+</BaseLayout>

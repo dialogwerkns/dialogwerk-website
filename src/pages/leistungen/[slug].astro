@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const leistungen = [
+  {
+    slug: 'strategie-check',
+    icon: '🎯',
+    title: 'Strategie-Check (BetrVG / BPersVG)',
+    tagline: 'Mitbestimmung ohne Bremswirkung: Vom Reagieren ins Agieren.',
+    desc: `Viele Betriebsräte und Personalvertretungen reagieren – statt zu gestalten. Der Strategie-Check hilft Ihnen, die eigene Gremiumsarbeit zu analysieren, Prioritäten zu setzen und eine klare Handlungsstrategie zu entwickeln.\n\nWir überprüfen gemeinsam: Wo stehen Sie? Welche Themen sind dringend? Welche Betriebsvereinbarungen fehlen? Und wie gelingt ein konstruktiver Dialog mit der Arbeitgeberseite?`,
+    leistungen: ['Analyse der aktuellen Gremiumsaufstellung', 'Identifikation offener Mitbestimmungsthemen', 'Entwicklung einer 12-Monats-Agenda', 'Beratung zu Betriebsvereinbarungen'],
+    zielgruppe: 'Betriebsräte, Personalräte, SBV',
+  },
+  {
+    slug: 'inklusions-booster',
+    icon: '🛡️',
+    title: 'Inklusions-Booster (SBV & SGB IX)',
+    tagline: 'Die Schwerbehindertenvertretung als Partner, nicht als Hürde.',
+    desc: `Inklusion ist mehr als Pflicht – sie ist eine Chance. Der Inklusions-Booster richtet sich an Schwerbehindertenvertretungen (SBV) und Arbeitgeber, die Inklusion nicht nur verwalten, sondern aktiv gestalten wollen.\n\nWir entwickeln gemeinsam Konzepte zur Prävention, Unterstützung und Integration – praxisnah und rechtssicher.`,
+    leistungen: ['Schulung der SBV zu SGB IX und § 167 SGB IX (BEM)', 'Workshop: Inklusion als Wettbewerbsvorteil', 'Entwicklung betrieblicher Inklusionskonzepte', 'Begleitung von Präventionsgesprächen'],
+    zielgruppe: 'SBV, HR, Führungskräfte',
+  },
+  {
+    slug: 'performance-turbo',
+    icon: '📊',
+    title: 'Performance-Turbo (Kennzahlen)',
+    tagline: 'Leistung messbar machen – auch im mitbestimmten Umfeld.',
+    desc: `Kennzahlen sind kein Selbstzweck – sie sind Führungsinstrument. Der Performance-Turbo zeigt, wie Leistung transparent und fair gemessen werden kann, ohne Mitbestimmungsrechte zu untergraben.\n\nIdeal für Unternehmen, die Zielvereinbarungen, OKRs oder KPI-Systeme einführen oder überarbeiten wollen.`,
+    leistungen: ['Workshop: Kennzahlen und Mitbestimmung', 'Entwicklung mitbestimmungskonformer Bewertungssysteme', 'Beratung zu Betriebsvereinbarungen (§ 87 BetrVG)', 'Schulung für HR und Führungskräfte'],
+    zielgruppe: 'HR, Führungskräfte, Betriebsräte',
+  },
+  {
+    slug: 'krisen-manager',
+    icon: '🤝',
+    title: 'Krisen-Manager (Verhandlung)',
+    tagline: 'Verhandeln, wenn es brennt: Wege aus der Sackgasse.',
+    desc: `Wenn Verhandlungen festgefahren sind, braucht es einen klaren Kopf und eine strukturierte Strategie. Der Krisen-Manager unterstützt bei schwierigen Verhandlungen zwischen Betriebsrat und Arbeitgeber – als neutraler Begleiter oder als Berater einer Partei.\n\nWir helfen, Positionen zu klären, Interessen zu verstehen und Lösungen zu finden, die Bestand haben.`,
+    leistungen: ['Verhandlungsbegleitung und -vorbereitung', 'Mediation bei festgefahrenen Konflikten', 'Coaching für Verhandlungsführer:innen', 'Moderation von Einigungsstellenverfahren'],
+    zielgruppe: 'Betriebsräte, Arbeitgeber, HR',
+  },
+  {
+    slug: 'profil-schaerfer',
+    icon: '💡',
+    title: 'Profil-Schärfer (Marke)',
+    tagline: 'Souveränität durch klare Positionierung am Verhandlungstisch.',
+    desc: `Wer bin ich als Betriebsrat? Wie möchte ich wahrgenommen werden? Und wie kommuniziere ich das glaubwürdig nach innen und außen? Der Profil-Schärfer hilft Gremien, ein klares Profil zu entwickeln und selbstbewusst zu vertreten.\n\nDenn ein Betriebsrat mit Profil wird ernst genommen – von der Belegschaft und von der Geschäftsführung.`,
+    leistungen: ['Workshop: Gremiumsidentität und Positionierung', 'Entwicklung einer internen Kommunikationsstrategie', 'Coaching für Betriebsratsvorsitzende', 'Unterstützung bei Betriebsversammlungen'],
+    zielgruppe: 'Betriebsratsvorsitzende, Gremien',
+  },
+  {
+    slug: 'sozialversicherungsrecht',
+    icon: '⚖️',
+    title: 'Sozialversicherungsrecht praxisnah',
+    tagline: 'Orientierung im Sozialversicherungsrecht – verständlich, praxisnah, auf den Punkt.',
+    desc: `Sozialversicherungsrecht ist komplex – aber nicht unlösbar. Wir bieten Schulungen und Orientierung zu den wichtigsten Themen: Minijob, Midijob, Scheinselbständigkeit, Beitragspflicht und mehr.\n\n⚠️ Hinweis: Unsere Leistungen sind Schulung, Information und Orientierung – keine Rechtsberatung im Einzelfall.`,
+    leistungen: ['Schulung: Grundlagen der Sozialversicherung', 'Workshop: Scheinselbständigkeit erkennen und vermeiden', 'Orientierung zu Minijob, Midijob und Beitragsgrenzen', 'Praxisnahe Fallbesprechungen (keine Rechtsberatung)'],
+    zielgruppe: 'HR, Geschäftsführung, Betriebsräte',
+  },
+  {
+    slug: 'coaching',
+    icon: '👤',
+    title: 'Coaching & Einzelcoaching',
+    tagline: 'Coaching als Entwicklungsraum – individuell, vertraulich, wirksam.',
+    desc: `Führung ist erlernbar – aber nicht ohne Reflexion. Im Einzelcoaching schaffen wir einen geschützten Raum, in dem Sie Herausforderungen, Konflikte und Entwicklungsfelder offen besprechen können.\n\nOb Führungskraft, Betriebsratsmitglied oder HR-Verantwortliche:r – Coaching hilft, klarer zu denken und wirksamer zu handeln.`,
+    leistungen: ['Einzelcoaching für Führungskräfte', 'Coaching für Betriebsratsmitglieder', 'Rollenklärung und Selbstpositionierung', 'Begleitung in Veränderungsprozessen'],
+    zielgruppe: 'Führungskräfte, Betriebsratsmitglieder, HR',
+  },
+  {
+    slug: 'moderation',
+    icon: '📋',
+    title: 'Moderation & Seminare',
+    tagline: 'Großgruppen und Workshops zielgerichtet moderieren.',
+    desc: `Gute Moderation macht den Unterschied. Ob Betriebsversammlung, Klausurtagung oder Teamworkshop – wir sorgen für eine strukturierte, ergebnisorientierte Durchführung, bei der alle Stimmen gehört werden.\n\nUnsere Seminare zu arbeitsrechtlichen Themen sind praxisnah, interaktiv und auf Ihre spezifische Situation zugeschnitten.`,
+    leistungen: ['Großgruppenmoderation (bis 200 Personen)', 'Klausurtagungen für Betriebsräte', 'Betriebsversammlungen strukturiert gestalten', 'Seminare zu BetrVG, SGB IX, Arbeitsschutz'],
+    zielgruppe: 'Betriebsräte, Führungsteams, HR',
+  },
+  {
+    slug: 'mediation-konfliktklaerung',
+    icon: '⚖️',
+    title: 'Mediation & Konfliktklärung',
+    tagline: 'Verhärtete Fronten lösen – professionell, allparteilich und nachhaltig.',
+    desc: `Konflikte sind normal – ungelöste Konflikte sind teuer. Mediation schafft einen strukturierten Rahmen, in dem alle Beteiligten zu Wort kommen und tragfähige Lösungen erarbeitet werden.\n\nWir arbeiten allparteilich, vertraulich und mit dem Ziel nachhaltiger Klärung – nicht nur oberflächlicher Einigung.`,
+    leistungen: ['Mediation bei Teamkonflikten', 'Konfliktklärung zwischen Führungskraft und Mitarbeiter:in', 'Begleitung von Konflikten zwischen Betriebsrat und Arbeitgeber', 'Präventive Konfliktberatung'],
+    zielgruppe: 'Teams, Führungskräfte, Betriebsräte',
+  },
+  {
+    slug: 'arbeitsschutz',
+    icon: '🛡️',
+    title: 'Arbeitsschutz pragmatisch',
+    tagline: 'Praxisnahe Unterweisungen und Workshop-Formate – verschlankt, interaktiv, alltagstauglich.',
+    desc: `Arbeitsschutz muss nicht trocken sein. Wir entwickeln Unterweisungsformate, die wirklich ankommen – interaktiv, praxisnah und auf die Bedürfnisse Ihrer Belegschaft zugeschnitten.\n\nOb digitale Unterweisung, Präsenz-Workshop oder hybrides Format – wir finden den richtigen Ansatz für Ihr Unternehmen.`,
+    leistungen: ['Konzeption und Durchführung von Unterweisungen', 'Workshop: Arbeitsschutz modern gestalten', 'Gefährdungsbeurteilung begleiten', 'Schulung für Arbeitsschutzbeauftragte und SiFa-Unterstützung'],
+    zielgruppe: 'HR, Führungskräfte, Arbeitsschutzbeauftragte',
+  },
+];
+
+export function getStaticPaths() {
+  const data = [
+    { slug: 'strategie-check', icon: '🎯', title: 'Strategie-Check (BetrVG / BPersVG)', tagline: 'Mitbestimmung ohne Bremswirkung: Vom Reagieren ins Agieren.', desc: 'Viele Betriebsräte und Personalvertretungen reagieren – statt zu gestalten. Der Strategie-Check hilft Ihnen, die eigene Gremiumsarbeit zu analysieren, Prioritäten zu setzen und eine klare Handlungsstrategie zu entwickeln.\n\nWir überprüfen gemeinsam: Wo stehen Sie? Welche Themen sind dringend? Welche Betriebsvereinbarungen fehlen? Und wie gelingt ein konstruktiver Dialog mit der Arbeitgeberseite?', leistungen: ['Analyse der aktuellen Gremiumsaufstellung', 'Identifikation offener Mitbestimmungsthemen', 'Entwicklung einer 12-Monats-Agenda', 'Beratung zu Betriebsvereinbarungen'], zielgruppe: 'Betriebsräte, Personalräte, SBV' },
+    { slug: 'inklusions-booster', icon: '🛡️', title: 'Inklusions-Booster (SBV & SGB IX)', tagline: 'Die Schwerbehindertenvertretung als Partner, nicht als Hürde.', desc: 'Inklusion ist mehr als Pflicht – sie ist eine Chance. Wir entwickeln gemeinsam Konzepte zur Prävention, Unterstützung und Integration.', leistungen: ['Schulung der SBV zu SGB IX', 'Workshop: Inklusion als Wettbewerbsvorteil', 'Entwicklung betrieblicher Inklusionskonzepte', 'Begleitung von Präventionsgesprächen'], zielgruppe: 'SBV, HR, Führungskräfte' },
+    { slug: 'performance-turbo', icon: '📊', title: 'Performance-Turbo (Kennzahlen)', tagline: 'Leistung messbar machen – auch im mitbestimmten Umfeld.', desc: 'Kennzahlen sind kein Selbstzweck – sie sind Führungsinstrument. Der Performance-Turbo zeigt, wie Leistung transparent und fair gemessen werden kann.', leistungen: ['Workshop: Kennzahlen und Mitbestimmung', 'Entwicklung mitbestimmungskonformer Bewertungssysteme', 'Beratung zu Betriebsvereinbarungen (§ 87 BetrVG)', 'Schulung für HR und Führungskräfte'], zielgruppe: 'HR, Führungskräfte, Betriebsräte' },
+    { slug: 'krisen-manager', icon: '🤝', title: 'Krisen-Manager (Verhandlung)', tagline: 'Verhandeln, wenn es brennt: Wege aus der Sackgasse.', desc: 'Wenn Verhandlungen festgefahren sind, braucht es einen klaren Kopf. Wir helfen, Positionen zu klären, Interessen zu verstehen und Lösungen zu finden.', leistungen: ['Verhandlungsbegleitung und -vorbereitung', 'Mediation bei festgefahrenen Konflikten', 'Coaching für Verhandlungsführer:innen', 'Moderation von Einigungsstellenverfahren'], zielgruppe: 'Betriebsräte, Arbeitgeber, HR' },
+    { slug: 'profil-schaerfer', icon: '💡', title: 'Profil-Schärfer (Marke)', tagline: 'Souveränität durch klare Positionierung am Verhandlungstisch.', desc: 'Wer bin ich als Betriebsrat? Der Profil-Schärfer hilft Gremien, ein klares Profil zu entwickeln und selbstbewusst zu vertreten.', leistungen: ['Workshop: Gremiumsidentität und Positionierung', 'Entwicklung einer internen Kommunikationsstrategie', 'Coaching für Betriebsratsvorsitzende', 'Unterstützung bei Betriebsversammlungen'], zielgruppe: 'Betriebsratsvorsitzende, Gremien' },
+    { slug: 'sozialversicherungsrecht', icon: '⚖️', title: 'Sozialversicherungsrecht praxisnah', tagline: 'Orientierung im Sozialversicherungsrecht – verständlich, praxisnah, auf den Punkt.', desc: 'Wir bieten Schulungen und Orientierung zu den wichtigsten Themen: Minijob, Midijob, Scheinselbständigkeit. Keine Rechtsberatung im Einzelfall.', leistungen: ['Schulung: Grundlagen der Sozialversicherung', 'Workshop: Scheinselbständigkeit erkennen', 'Orientierung zu Minijob, Midijob', 'Praxisnahe Fallbesprechungen'], zielgruppe: 'HR, Geschäftsführung, Betriebsräte' },
+    { slug: 'coaching', icon: '👤', title: 'Coaching & Einzelcoaching', tagline: 'Coaching als Entwicklungsraum – individuell, vertraulich, wirksam.', desc: 'Im Einzelcoaching schaffen wir einen geschützten Raum für Herausforderungen, Konflikte und Entwicklungsfelder. Für Führungskräfte und Betriebsratsmitglieder.', leistungen: ['Einzelcoaching für Führungskräfte', 'Coaching für Betriebsratsmitglieder', 'Rollenklärung und Selbstpositionierung', 'Begleitung in Veränderungsprozessen'], zielgruppe: 'Führungskräfte, Betriebsratsmitglieder, HR' },
+    { slug: 'moderation', icon: '📋', title: 'Moderation & Seminare', tagline: 'Großgruppen und Workshops zielgerichtet moderieren.', desc: 'Gute Moderation macht den Unterschied. Ob Betriebsversammlung, Klausurtagung oder Teamworkshop – wir sorgen für strukturierte, ergebnisorientierte Durchführung.', leistungen: ['Großgruppenmoderation (bis 200 Personen)', 'Klausurtagungen für Betriebsräte', 'Betriebsversammlungen strukturiert gestalten', 'Seminare zu BetrVG, SGB IX, Arbeitsschutz'], zielgruppe: 'Betriebsräte, Führungsteams, HR' },
+    { slug: 'mediation-konfliktklaerung', icon: '⚖️', title: 'Mediation & Konfliktklärung', tagline: 'Verhärtete Fronten lösen – professionell, allparteilich und nachhaltig.', desc: 'Konflikte sind normal – ungelöste Konflikte sind teuer. Wir arbeiten allparteilich, vertraulich und mit dem Ziel nachhaltiger Klärung.', leistungen: ['Mediation bei Teamkonflikten', 'Konfliktklärung zwischen Führungskraft und Mitarbeiter:in', 'Begleitung bei BR-Arbeitgeber-Konflikten', 'Präventive Konfliktberatung'], zielgruppe: 'Teams, Führungskräfte, Betriebsräte' },
+    { slug: 'arbeitsschutz', icon: '🛡️', title: 'Arbeitsschutz pragmatisch', tagline: 'Praxisnahe Unterweisungen und Workshop-Formate – verschlankt, interaktiv, alltagstauglich.', desc: 'Arbeitsschutz muss nicht trocken sein. Wir entwickeln Unterweisungsformate, die wirklich ankommen – interaktiv und praxisnah.', leistungen: ['Konzeption und Durchführung von Unterweisungen', 'Workshop: Arbeitsschutz modern gestalten', 'Gefährdungsbeurteilung begleiten', 'Schulung für Arbeitsschutzbeauftragte'], zielgruppe: 'HR, Führungskräfte, Arbeitsschutzbeauftragte' },
+  ];
+  return data.map(l => ({ params: { slug: l.slug }, props: { leistung: l } }));
+}
+
+const { leistung } = Astro.props;
+---
+<BaseLayout title={leistung.title} description={leistung.tagline}>
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <nav class="text-sm text-gray-500 mb-8">
+      <a href="/" class="hover:text-blue-700">Home</a>
+      <span class="mx-2">/</span>
+      <a href="/leistungen" class="hover:text-blue-700">Leistungen</a>
+      <span class="mx-2">/</span>
+      <span class="text-gray-800">{leistung.title}</span>
+    </nav>
+
+    <div class="text-5xl mb-4">{leistung.icon}</div>
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{leistung.title}</h1>
+    <p class="text-blue-700 text-xl font-medium mb-8">{leistung.tagline}</p>
+
+    <div class="prose prose-lg prose-blue max-w-none mb-10">
+      {leistung.desc.split('\n\n').map((p: string) => <p>{p}</p>)}
+    </div>
+
+    <div class="bg-gray-50 rounded-xl p-6 mb-8">
+      <h2 class="font-bold text-gray-900 mb-4 text-lg">Was wir konkret anbieten:</h2>
+      <ul class="space-y-2">
+        {leistung.leistungen.map((item: string) => (
+          <li class="flex items-start gap-2 text-gray-700">
+            <span class="text-blue-600 mt-0.5">✓</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="text-sm text-gray-500 mb-10">
+      <strong>Zielgruppe:</strong> {leistung.zielgruppe}
+    </div>
+
+    <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
+      <h3 class="font-bold text-blue-900 mb-2">Interessiert?</h3>
+      <p class="text-blue-800 text-sm mb-4">Vereinbaren Sie ein unverbindliches Vorgespräch – wir klären gemeinsam, wie wir Sie unterstützen können.</p>
+      <a href="/termin" class="bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-800 transition inline-block">Termin anfragen</a>
+    </div>
+  </div>
+</BaseLayout>
