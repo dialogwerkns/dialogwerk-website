@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dialogwerk-niedersachsen.de/sitemap-index.xml

@@ -1,0 +1,447 @@
+﻿<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inhouse-Seminare für Betriebsrat & SBV | Seminarkatalog 2026</title>
+    <meta name="description"
+        content="Individuelle Inhouse-Schulungen für Betriebsrat und SBV. Rhetorik, SGB IX, Strategie und Verhandlung — rechtssicher nach § 37 Abs. 6 BetrVG & § 179 Abs. 4 SGB IX.">
+    <meta name="keywords" content="Inhouse Seminar Betriebsrat, SBV Schulung SGB IX, Rhetorik Betriebsrat, Kompass 100, Dialogwerk Niedersachsen, Schulungsanspruch BetrVG">
+    <meta name="author" content="Dialogwerk Niedersachsen">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="Seminarkatalog 2026: Inhouse-Schulungen für Betriebsrat & SBV">
+    <meta property="og:description" content="Sichern Sie sich Praxiswissen für Ihr Gremium. Strategische Seminare auf Augenhöhe.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dialogwerk-niedersachsen.de/seminare.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Structured Data for Google (Service) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Inhouse-Seminare für Betriebsrat & SBV",
+      "description": "Individuelle Schulung von Gremien in den Bereichen Rhetorik, Recht und Strategie.",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Dialogwerk Niedersachsen"
+      },
+      "areaServed": "DE",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Seminar-Portfolio 2026",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Rhetorik & Verhandlungstraining"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "SGB IX & Inklusions-Seminare"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="_astro/_slug_.DihIXEwM.css">
+    <style>
+        .filter-active {
+            @apply bg-primary-600 text-white border-primary-600;
+        }
+
+        .seminar-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .seminar-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col bg-warm-50/30">
+    <!-- Header (Consistent with Main) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-warm-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <svg viewBox="0 0 48 48" class="w-9 h-9">
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1E40AF" />
+                                <stop offset="100%" style="stop-color:#162F85" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M6 8C6 5.79 7.79 4 10 4H38C40.21 4 42 5.79 42 8V30C42 32.21 40.21 34 38 34H18L10 42V34H10C7.79 34 6 32.21 6 30V8Z" fill="url(#logoGrad)" />
+                        <text x="24" y="24" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Inter,sans-serif" font-weight="700" font-size="14">DN</text>
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-warm-900 text-lg">Dialogwerk</span>
+                        <span class="font-medium text-warm-400 text-xs">Niedersachsen</span>
+                    </div>
+                </a>
+                <nav class="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Hauptnavigation">
+                    <a href="leistungen.html" class="px-3 py-2 text-sm font-semibold text-warm-600 hover:text-primary-600 rounded-lg hover:bg-primary-50 whitespace-nowrap">Leistungen</a>
+                    <a href="ueber-dialogwerk.html" class="px-3 py-2 text-sm font-semibold text-warm-600 hover:text-primary-600 rounded-lg hover:bg-primary-50 whitespace-nowrap">Über Dialogwerk</a>
+                    <a href="referenzen.html" class="px-3 py-2 text-sm font-semibold text-warm-600 hover:text-primary-600 rounded-lg hover:bg-primary-50 whitespace-nowrap">Referenzen</a>
+                    <a href="wissen.html" class="px-3 py-2 text-sm font-semibold text-warm-600 hover:text-primary-600 rounded-lg hover:bg-primary-50 whitespace-nowrap">Wissen</a>
+                    <a href="aktuelles.html" class="px-3 py-2 text-sm font-semibold text-warm-600 hover:text-primary-600 rounded-lg hover:bg-primary-50 whitespace-nowrap">Aktuelles</a>
+                    <a href="seminare.html" class="px-3 py-2 text-sm font-bold text-primary-600 bg-primary-50 rounded-lg whitespace-nowrap">Seminarkatalog</a>
+                    <a href="kontakt.html" class="px-3 py-2 text-sm font-semibold text-warm-600 hover:text-primary-600 rounded-lg hover:bg-primary-50 whitespace-nowrap">Kontakt</a>
+                </nav>
+                <a href="termin.html" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 text-white text-sm font-semibold rounded-xl hover:bg-primary-700 shadow-md">Jetzt anfragen</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1">
+        <!-- Hero Section -->
+        <section class="gradient-primary text-white section-padding pt-16 lg:pt-24 relative overflow-hidden bg-primary-950" id="hero">
+            <!-- Background Image Layer -->
+            <div class="absolute inset-0 z-0 opacity-20" style="background-image: url('fotos/workshop_hero_hd.png'); background-size: cover; background-position: center;"></div>
+            <!-- Gradient Overlay Layer -->
+            <div class="absolute inset-0 z-0 bg-gradient-to-br from-primary-950 via-primary-900/80 to-primary-950"></div>
+            <div class="container-wide relative z-10">
+                <div class="max-w-3xl">
+                    <span class="inline-block text-sm font-semibold text-white uppercase tracking-widest mb-3">Portfolio 2026</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-white">Wissen, das bewegt. <br>Formate für Ihre Gremienarbeit.</h1>
+                    <p class="text-lg text-white leading-relaxed max-w-2xl">
+                        Wir schulen nicht von der Stange. Unsere Inhouse-Seminare sind präzise auf Ihre betriebliche Situation abgestimmt — für eine Mitbestimmung auf Augenhöhe.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog Section -->
+        <section class="section-padding" id="katalog">
+            <div class="container-wide">
+                <!-- Filter -->
+                <div class="flex flex-wrap justify-between items-end gap-6 mb-12 border-b border-warm-200 pb-8">
+                    <div class="flex flex-wrap gap-3">
+                        <button onclick="filterSeminars('all')" class="filter-btn active px-6 py-2.5 rounded-xl text-sm font-bold border-2 border-primary-100 hover:border-primary-600 transition-all">Alle Angebote</button>
+                        <button onclick="filterSeminars('br')" class="filter-btn px-6 py-2.5 rounded-xl text-sm font-bold border-2 border-primary-100 hover:border-primary-600 transition-all">Für den Betriebsrat</button>
+                        <button onclick="filterSeminars('sbv')" class="filter-btn px-6 py-2.5 rounded-xl text-sm font-bold border-2 border-primary-100 hover:border-primary-600 transition-all">Für die SBV</button>
+                    </div>
+                    <div class="text-sm text-warm-400 font-medium">
+                        Investition pro Tag: <span class="text-primary-600 font-bold">auf Anfrage</span> (Inhouse)
+                    </div>
+                </div>
+
+                <!-- NEW: Workflow Explanation Section -->
+                <div class="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white rounded-3xl p-8 lg:p-12 border border-warm-200 shadow-sm">
+                    <div>
+                        <h2 class="text-3xl font-bold text-warm-900 mb-6 font-primary">So sieht Ihre Zeit aus: Der 3-Tage-Standard</h2>
+                        <p class="text-warm-600 mb-8 leading-relaxed">
+                            Rhetorik und Strategie lassen sich nicht "nebenbei" lernen. Unsere 3-Tages-Seminare folgen einem bewährten Rhythmus, um Wissen in echtes Können zu verwandeln.
+                        </p>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <span class="flex-shrink-0 w-10 h-10 bg-primary-600 text-white rounded-xl flex items-center justify-center font-bold">01</span>
+                                <div>
+                                    <h3 class="font-bold text-warm-900">Tag 1: Präsenz & Fundament</h3>
+                                    <p class="text-sm text-warm-500">Körpersprache, Status-Management und die psychologische Basis für Ihre Rolle im Betrieb.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="flex-shrink-0 w-10 h-10 bg-primary-600 text-white rounded-xl flex items-center justify-center font-bold">02</span>
+                                <div>
+                                    <h3 class="font-bold text-warm-900">Tag 2: Training & Interaktion</h3>
+                                    <p class="text-sm text-warm-500">Intensives Training im geschützten Raum. Umgang mit Einwürfen, Argumentationslogik und Verhandlungstaktik.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="flex-shrink-0 w-10 h-10 bg-primary-600 text-white rounded-xl flex items-center justify-center font-bold">03</span>
+                                <div>
+                                    <h3 class="font-bold text-warm-900">Tag 3: Der Praxis-Check (Transfer)</h3>
+                                    <p class="text-sm text-warm-500">Vorbereitung Ihrer nächsten echten Termine (Monatsgespräch/Versammlung). Wir produzieren fertige Ergebnisse.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-warm-50 rounded-2xl p-8">
+                        <h2 class="text-2xl font-bold text-warm-900 mb-4">Das 2-Tage-Fokus-Format</h2>
+                        <p class="text-sm text-warm-600 mb-6">
+                            Bei unseren Spezial-Seminaren (z. B. Kooperation BR/SBV) steigen wir ohne Umwege direkt in die Lösung ein:
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3 text-sm">
+                                <svg class="w-5 h-5 text-primary-600 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span><strong>Tag 1:</strong> Bestandsaufnahme, Rollenklärung und rechtliche Hebel.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm">
+                                <svg class="w-5 h-5 text-primary-600 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span><strong>Tag 2:</strong> Erarbeitung von Kooperationsvereinbarungen und Roadmaps.</span>
+                            </li>
+                        </ul>
+                        <div class="mt-8 p-4 bg-white rounded-xl border border-warm-200">
+                            <p class="text-xs text-warm-500 italic">
+                                "Der dritte Tag macht den Unterschied zwischen 'darüber gesprochen' und 'jetzt können wir es'."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="seminar-grid">
+                    
+                    <!-- BEREICH BETRIEBSRAT -->
+
+                    <!-- Rhetorik I -->
+                    <div class="seminar-card bg-white rounded-2xl border border-warm-200 p-8 flex flex-col" data-cat="br">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Rhetorik & Wirkung</span>
+                            <span class="text-xs text-warm-400 font-bold">3 Tage</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-warm-900 mb-4 leading-snug">Redegewandt am Tisch – Rhetorik I</h3>
+                        <p class="text-sm text-warm-600 leading-relaxed mb-6">Die Basis für sicheres Auftreten. Freies Sprechen vor dem Arbeitgeber und im Gremium, ohne das Gesicht zu verlieren.</p>
+                        <div class="mt-auto pt-6 border-t border-warm-100 flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary-600">auf Anfrage</span>
+                            <a href="seminare/rhetorik-1.html" class="text-sm font-bold text-primary-600 hover:underline">Details & Inhalte →</a>
+                        </div>
+                    </div>
+
+                    <!-- Rhetorik II -->
+                    <div class="seminar-card bg-white rounded-2xl border border-warm-200 p-8 flex flex-col" data-cat="br">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Rhetorik & Wirkung</span>
+                            <span class="text-xs text-warm-400 font-bold">3 Tage</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-warm-900 mb-4 leading-snug">Die Kraft der Argumentation – Rhetorik II</h3>
+                        <p class="text-sm text-warm-600 leading-relaxed mb-6">Ihre Argumente zählen. Fokus auf Logik, Überzeugungstechniken und den souveränen Umgang mit Stress in hitzigen Debatten.</p>
+                        <div class="mt-auto pt-6 border-t border-warm-100 flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary-600">auf Anfrage</span>
+                            <a href="seminare/rhetorik-2.html" class="text-sm font-bold text-primary-600 hover:underline">Details & Inhalte →</a>
+                        </div>
+                    </div>
+
+                    <!-- Rhetorik III -->
+                    <div class="seminar-card bg-white rounded-2xl border border-warm-200 p-8 flex flex-col" data-cat="br">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Öffentlichkeitsarbeit</span>
+                            <span class="text-xs text-warm-400 font-bold">2 Tage</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-warm-900 mb-4 leading-snug">Sichtbarkeit & Präsenz: Die BR-Marke</h3>
+                        <p class="text-sm text-warm-600 leading-relaxed mb-6">Professionelle Öffentlichkeitsarbeit für den BR. Souveräner Auftritt auf Versammlungen und effektive Eigenvermarktung der BR-Erfolge.</p>
+                        <div class="mt-auto pt-6 border-t border-warm-100 flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary-600">auf Anfrage</span>
+                            <a href="seminare/rhetorik-3.html" class="text-sm font-bold text-primary-600 hover:underline">Details & Inhalte →</a>
+                        </div>
+                    </div>
+
+                    <!-- Orga -->
+                    <div class="seminar-card bg-white rounded-2xl border border-warm-200 p-8 flex flex-col" data-cat="br">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 bg-warm-100 text-warm-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Organisation</span>
+                            <span class="text-xs text-warm-400 font-bold">3 Tage</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-warm-900 mb-4 leading-snug">Der effiziente BR-Motor</h3>
+                        <p class="text-sm text-warm-600 leading-relaxed mb-6">Management und moderne Geschäftsführung für das Gremium. Prozesse digitalisieren und rechtssicher organisieren.</p>
+                        <div class="mt-auto pt-6 border-t border-warm-100 flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary-600">auf Anfrage</span>
+                            <a href="seminare/br-organisation.html" class="text-sm font-bold text-primary-600 hover:underline">Details & Inhalte →</a>
+                        </div>
+                    </div>
+
+                    <!-- Verhandlung -->
+                    <div class="seminar-card bg-white rounded-2xl border border-warm-200 p-8 flex flex-col" data-cat="br">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 bg-primary-50 text-primary-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Strategie</span>
+                            <span class="text-xs text-warm-400 font-bold">3 Tage</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-warm-900 mb-4 leading-snug">Strategische Diplomatie & Verhandlung</h3>
+                        <p class="text-sm text-warm-600 leading-relaxed mb-6">Verhandeln auf Augenhöhe. Taktiken, Psychologie und das Erreichen von Win-Win-Lösungen in Verhandlungen mit dem Arbeitgeber.</p>
+                        <div class="mt-auto pt-6 border-t border-warm-100 flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary-600">auf Anfrage</span>
+                            <a href="seminare/verhandlung.html" class="text-sm font-bold text-primary-600 hover:underline">Details & Inhalte →</a>
+                        </div>
+                    </div>
+
+                    <!-- Führung -->
+                    <div class="seminar-card bg-white rounded-2xl border border-warm-200 p-8 flex flex-col" data-cat="br">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Führung</span>
+                            <span class="text-xs text-warm-400 font-bold">3 Tage</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-warm-900 mb-4 leading-snug">Vorsitz & Management: Das starke Trio</h3>
+                        <p class="text-sm text-warm-600 leading-relaxed mb-6">Exklusive Führungsklausur für den 1. & 2. Vorsitz sowie die Schriftführung. Strategische Steuerung und effizientes Team-Management.</p>
+                        <div class="mt-auto pt-6 border-t border-warm-100 flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary-600">auf Anfrage</span>
+                            <a href="seminare/br-vorsitz.html" class="text-sm font-bold text-primary-600 hover:underline">Details & Inhalte →</a>
+                        </div>
+                    </div>
+
+                    <!-- BEREICH SBV -->
+
+                    <!-- Rhetorik SBV -->
+                    <div class="seminar-card bg-white rounded-2xl border border-warm-200 p-8 flex flex-col" data-cat="sbv">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 bg-green-50 text-green-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Öffentlichkeitsarbeit</span>
+                            <span class="text-xs text-warm-400 font-bold">2 Tage</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-warm-900 mb-4 leading-snug">Wortgewalt für Inklusion (SBV)</h3>
+                        <p class="text-sm text-warm-600 leading-relaxed mb-6">Die SBV als starke Marke. Klare Positionierung im Betrieb, wirksame Beratung und souveräne Auftritte vor der Belegschaft.</p>
+                        <div class="mt-auto pt-6 border-t border-warm-100 flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary-600">auf Anfrage</span>
+                            <a href="seminare/sbv-rhetorik.html" class="text-sm font-bold text-primary-600 hover:underline">Details & Inhalte →</a>
+                        </div>
+                    </div>
+
+                    <!-- Inklusion -->
+                    <div class="seminar-card bg-white rounded-2xl border border-warm-200 p-8 flex flex-col" data-cat="sbv">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 bg-green-50 text-green-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Kultur-Marketing</span>
+                            <span class="text-xs text-warm-400 font-bold">2 Tage</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-warm-900 mb-4 leading-snug">Gelebte Inklusion & Teilhabe</h3>
+                        <p class="text-sm text-warm-600 leading-relaxed mb-6">Inklusion als strategischer Kulturwandel. Die erfolgreiche interne Vermarktung von Teilhabe als Chance für das ganze Unternehmen.</p>
+                        <div class="mt-auto pt-6 border-t border-warm-100 flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary-600">auf Anfrage</span>
+                            <a href="seminare/inklusions-kultur.html" class="text-sm font-bold text-primary-600 hover:underline">Details & Inhalte →</a>
+                        </div>
+                    </div>
+
+                    <!-- Barrierefrei -->
+                    <div class="seminar-card bg-white rounded-2xl border border-warm-200 p-8 flex flex-col" data-cat="sbv">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 bg-warm-100 text-warm-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Technik & Gesetz</span>
+                            <span class="text-xs text-warm-400 font-bold">2 Tage</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-warm-900 mb-4 leading-snug">Räume ohne Grenzen</h3>
+                        <p class="text-sm text-warm-600 leading-relaxed mb-6">Barrierefreie Arbeitsplatzgestaltung: Ergonomie, Technik und optimale Nutzung staatlicher Fördermittel.</p>
+                        <div class="mt-auto pt-6 border-t border-warm-100 flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary-600">auf Anfrage</span>
+                            <a href="seminare/barrierefrei.html" class="text-sm font-bold text-primary-600 hover:underline">Details & Inhalte →</a>
+                        </div>
+                    </div>
+
+                    <!-- BR & SBV -->
+                    <div class="seminar-card bg-primary-50 rounded-2xl border-2 border-primary-200 p-8 flex flex-col" data-cat="br,sbv">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Kollaboration</span>
+                            <span class="text-xs text-warm-400 font-bold">2 Tage</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-warm-900 mb-4 leading-snug">Allianz der Teilhabe: BR & SBV</h3>
+                        <p class="text-sm text-warm-600 leading-relaxed mb-6">Das unschlagbare Team. Wie BR und SBV rechtliche Hebel gemeinsam für maximale Inklusion nutzen.</p>
+                        <div class="mt-auto pt-6 border-t border-primary-200 flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary-700">auf Anfrage</span>
+                            <a href="seminare/br-sbv-allianz.html" class="text-sm font-bold text-primary-700 hover:underline">Details & Inhalte →</a>
+                        </div>
+                    </div>
+
+                    <!-- Krisen -->
+                    <div class="seminar-card bg-white rounded-2xl border border-warm-200 p-8 flex flex-col" data-cat="br,sbv">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 bg-red-50 text-red-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Deeskalation</span>
+                            <span class="text-xs text-warm-400 font-bold">2 Tage</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-warm-900 mb-4 leading-snug">Krisenfester Verhandler</h3>
+                        <p class="text-sm text-warm-600 leading-relaxed mb-6">Druck, Manipulation und festgefahrene Situationen souverän meistern. Ihr Schutzschild für harte Fronten.</p>
+                        <div class="mt-auto pt-6 border-t border-warm-100 flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary-600">auf Anfrage</span>
+                            <a href="seminare/krisen-training.html" class="text-sm font-bold text-primary-600 hover:underline">Details & Inhalte →</a>
+                        </div>
+                    </div>
+
+                    <!-- Marke SBV -->
+                    <div class="seminar-card bg-white rounded-2xl border border-warm-200 p-8 flex flex-col" data-cat="sbv">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 bg-green-50 text-green-700 text-[10px] font-bold uppercase tracking-widest rounded-full">Kommunikation</span>
+                            <span class="text-xs text-warm-400 font-bold">2 Tage</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-warm-900 mb-4 leading-snug">Anwalt der Inklusion: Marke SBV</h3>
+                        <p class="text-sm text-warm-600 leading-relaxed mb-6">Professionelle Öffentlichkeitsarbeit für die SBV: Sichtbarkeit erhöhen und Vertrauen stärken.</p>
+                        <div class="mt-auto pt-6 border-t border-warm-100 flex items-center justify-between">
+                            <span class="text-lg font-bold text-primary-600">auf Anfrage</span>
+                            <a href="seminare/sbv-pr.html" class="text-sm font-bold text-primary-600 hover:underline">Details & Inhalte →</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Summary Info -->
+                <div class="mt-20 bg-warm-900 text-white rounded-3xl p-10 lg:p-16 relative overflow-hidden" id="investition">
+                    <div class="absolute top-0 right-0 w-1/3 h-full bg-primary-600/10 skew-x-12 translate-x-1/2"></div>
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <span class="inline-block text-sm font-semibold text-primary-400 uppercase tracking-widest mb-3">Konditionen</span>
+                            <h2 class="text-3xl font-bold mb-6">Investition & Details</h2>
+                            <p class="text-warm-300 mb-8 leading-relaxed">
+                                Transparenz ist die Basis für Vertrauen. Unsere Inhouse-Preise sind Pauschalsätze für Ihr gesamtes Gremium — egal ob 3 oder 15 Teilnehmer.
+                            </p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-primary-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <p class="text-warm-300 font-medium"><strong>Fester Tagessatz:</strong> auf Anfrage (zzgl. MwSt) pro Schulungstag.</p>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-primary-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <p class="text-warm-300 font-medium"><strong>Inklusive Vorbereitung:</strong> Ein Vorgespräch zur Abstimmung auf Ihren Betrieb ist immer enthalten.</p>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-primary-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <p class="text-warm-300 font-medium"><strong>Unterlagen:</strong> Digitale Handouts und Protokolle der erarbeiteten Ergebnisse sind inklusive.</p>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-primary-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <p class="text-warm-300 font-medium"><strong>Reisekosten:</strong> Abrechnung nach tatsächlichem Aufwand oder Pauschale (je nach Entfernung).</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+                            <h3 class="text-xl font-bold mb-4">Warum Inhouse?</h3>
+                            <p class="text-sm text-warm-300 leading-relaxed mb-6">
+                                Im Gegensatz zu offenen Seminaren arbeiten wir an <strong>Ihren echten Fällen</strong>. Das spart Reisezeit für das gesamte Gremium und stellt sicher, dass die Ergebnisse am nächsten Tag im Betrieb wirksam werden.
+                            </p>
+                            <div class="p-6 bg-white/5 rounded-2xl border border-white/10 mb-6">
+                                <p class="text-xs text-blue-200 uppercase font-bold tracking-widest mb-1">Inhouse-Pauschale</p>
+                                <div class="text-3xl font-bold">auf Anfrage</div>
+                                <p class="text-[10px] text-warm-500 mt-1">Für bis zu 15 Personen</p>
+                            </div>
+                            <a href="termin.html" class="block text-center w-full py-4 bg-primary-600 text-white font-bold rounded-xl hover:bg-primary-500 transition-colors shadow-lg">Unverbindliches Angebot anfordern</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-warm-900 text-warm-300" id="site-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <!-- Footer Content (Consistent) -->
+            <p class="text-center text-xs text-warm-500">© 2026 Dialogwerk Niedersachsen. Alle Rechte vorbehalten. | <a href="impressum.html" class="hover:text-white">Impressum</a> | <a href="datenschutz.html" class="hover:text-white">Datenschutz</a></p>
+        </div>
+    </footer>
+
+    <script type="module">
+        function filterSeminars(cat) {
+            const cards = document.querySelectorAll('.seminar-card');
+            const btns = document.querySelectorAll('.filter-btn');
+            
+            btns.forEach(b => b.classList.remove('active', 'border-primary-600', 'bg-primary-50'));
+            const activeBtn = Array.from(btns).find(b => b.textContent.toLowerCase().includes(cat === 'all' ? 'alle' : cat));
+            if(activeBtn) activeBtn.classList.add('active', 'border-primary-600', 'bg-primary-50');
+
+            cards.forEach(card => {
+                const cardCats = card.getAttribute('data-cat') || '';
+                if(cat === 'all' || cardCats.includes(cat)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        window.filterSeminars = filterSeminars;
+    </script>
+</body>
+</html>
+
+

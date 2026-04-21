@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVE: Hormuz Crisis Monitor</title>
+    <style>
+        :root {
+            --bg-dark: #000;
+            --accent: #ff0000;
+            --text: #ffffff;
+            --glass: rgba(0, 0, 0, 0.94);
+        }
+
+        body, html {
+            margin: 0; padding: 0; background: #000; color: var(--text);
+            font-family: 'Segoe UI', Roboto, sans-serif; overflow: hidden;
+            height: 100vh; width: 100vw;
+        }
+
+        .audio-trigger {
+            background: var(--accent); color: #fff; padding: 10px;
+            font-weight: 950; text-align: center; border: 2px solid #fff;
+            cursor: pointer; animation: pulse 1s infinite;
+            margin-bottom: 10px; font-size: 0.8rem;
+        }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+        .broadcast-container {
+            width: 100%; height: 100%; display: grid;
+            grid-template-columns: 1fr 52vw;
+            grid-template-rows: 1fr 12vh;
+            grid-template-areas: "main sidebar" "footer footer";
+            position: relative;
+            background: #000;
+            border: 8px solid var(--accent);
+            animation: emergency-blink 0.4s infinite;
+        }
+
+        @keyframes emergency-blink {
+            0%, 100% { border-color: var(--accent); box-shadow: inset 0 0 100px rgba(255,0,0,0.3); }
+            50% { border-color: #333; box-shadow: inset 0 0 20px rgba(255,0,0,0.1); }
+        }
+
+        .main-view { grid-area: main; border-right: 2px solid var(--accent); position: relative; background: #050505; overflow: hidden; }
+        .sidebar { grid-area: sidebar; background: var(--glass); padding: 30px; z-index: 100; border-left: 2px solid rgba(255,0,0,0.4); display: flex; flex-direction: column; height: 100%; overflow: hidden; }
+        footer { grid-area: footer; background: #000; border-top: 2px solid var(--accent); display: flex; align-items: center; overflow: hidden; height: 100%; z-index: 900; position: relative; }
+
+        .satellite-img {
+            width: 130%; height: 130%; object-fit: cover;
+            filter: brightness(0.4) contrast(1.2);
+            animation: satellite-pan 60s linear infinite alternate;
+            z-index: 10;
+            position: absolute;
+            top: -15%; left: -15%;
+        }
+
+        @keyframes satellite-pan {
+            0% { transform: scale(1) translate(0,0); }
+            100% { transform: scale(1.1) translate(5%, 5%); }
+        }
+
+        .moderation-overlay {
+            position: absolute;
+            top: 110px;
+            left: 25px;
+            width: calc(100% - 50px);
+            background: rgba(0,0,0,0.96);
+            border: 3px solid var(--accent);
+            padding: 25px;
+            z-index: 800;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 0 100px rgba(255,0,0,0.8);
+        }
+        .mod-title { color: var(--accent); font-weight: 950; font-size: 1.4rem; text-transform: uppercase; margin-bottom: 25px; border-bottom: 3px solid var(--accent); padding-bottom: 12px; letter-spacing: 2px; text-align: center; }
+        
+        .deep-dive-text {
+            font-size: 1.25rem;
+            line-height: 1.75;
+            color: #eee;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .live-tag { background: var(--accent); padding: 5px 25px; font-weight: 950; animation: blink 0.5s infinite; font-size: 1.25rem; display: inline-block; margin-bottom: 15px; z-index: 1000; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        .media-feed { margin: 10px 0; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 8px; z-index: 200; height: 35vh; }
+        .intel-photo { border: 1px solid var(--accent); position: relative; overflow: hidden; background: #111; box-shadow: 0 0 10px rgba(255,0,0,0.3); }
+        .intel-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .intel-label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,0,0,0.85); color: #fff; font-size: 0.55rem; font-weight: 950; padding: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .timeline-container { flex-grow: 1; overflow-y: auto; z-index: 200; border-top: 1px solid rgba(255,0,0,0.3); padding-top: 5px; }
+        .log-entry { margin-bottom: 12px; border-left: 3px solid var(--accent); padding-left: 15px; position: relative; }
+        .log-time { font-family: 'Courier New', monospace; color: var(--accent); font-weight: 900; font-size: 1rem; }
+        .log-msg { font-size: 0.95rem; line-height: 1.3; color: #eee; margin-top: 2px; }
+
+        .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; z-index: 200; }
+        .stat-mini-box { background: rgba(255,0,0,0.3); border: 2px solid var(--accent); padding: 8px; text-align: center; }
+        .stat-mini-val { font-size: 1.5rem; font-weight: 900; color: var(--accent); }
+
+        .breaking-tag { background: var(--accent); font-weight: 950; padding: 0 45px; font-size: 2.8rem; height: 100%; display: flex; align-items: center; z-index: 1000; box-shadow: 20px 0 50px rgba(0,0,0,0.8); }
+        .ticker-move { display: inline-block; white-space: nowrap; animation: ticker-anim 42s linear infinite; z-index: 950; position: relative; }
+        @keyframes ticker-anim { 0% { transform: translateX(2%); } 100% { transform: translateX(-100%); } }
+        .ticker-text { font-size: 2.5rem; font-family: 'Courier New', monospace; padding-right: 250px; font-weight: bold; color: #fff; text-shadow: 2px 2px #000; display: inline-block; }
+
+        .clock { position: absolute; top: 25px; left: 25px; font-family: monospace; font-size: 2rem; color: var(--accent); z-index: 1000; background: rgba(0,0,0,0.9); padding: 12px 30px; border: 3px solid var(--accent); font-weight: bold; }
+        .status-stamp { position: absolute; bottom: 30px; left: 30px; color: var(--accent); font-weight: 950; font-size: 2.5rem; transform: rotate(-10deg); opacity: 0.9; z-index: 750; border: 12px solid var(--accent); padding: 15px; text-align: center; pointer-events: none; mix-blend-mode: hard-light; background: rgba(0,0,0,0.6); animation: stamp-blink 0.3s infinite; }
+        @keyframes stamp-blink { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<audio id="bg-music" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+
+<div class="broadcast-container">
+    <div class="main-view">
+        <div class="clock" id="clock">23:00:00</div>
+        
+        <div class="moderation-overlay">
+            <div class="mod-title">STRATEGIC ANALYTIC DEEP-DIVE</div>
+            <div class="deep-dive-text">
+                🚨 Die israelischen <b>F-35</b> haben soeben das Feuer auf die russische Mittelmeerflotte am Suezkanal eröffnet. Israel sieht die russische Blockade als existenzielle Bedrohung an. Moskau hat Ägypten angegriffen – und Israel schlägt zurück. Wir erleben live den Moment, in dem regionale Konflikte zu einem unkontrollierbaren Weltbrand verschmelzen.
+            </div>
+        </div>
+
+        <div class="status-stamp">ISRAEL<br>INTERVENING</div>
+        <img src="satellite_master.png" class="satellite-img">
+    </div>
+
+    <aside class="sidebar">
+        <div id="audio-btn" class="audio-trigger" onclick="activateAudio()">ACTIVATE AUDIO</div>
+        
+        <div class="live-tag">KRISEN-CHRONOLOGIE</div>
+        
+        <div class="stat-row">
+            <div class="stat-mini-box">
+                <div style="font-size:0.65rem; color:#fff; font-weight: bold;">IAF RESPONSE</div>
+                <div class="stat-mini-val" style="font-size: 1.2rem;">KINETIC</div>
+            </div>
+            <div class="stat-mini-box">
+                <div style="font-size:0.65rem; color:#fff; font-weight: bold;">RU-FLEET</div>
+                <div class="stat-mini-val" style="font-size: 1.2rem;">ENGAGED</div>
+            </div>
+        </div>
+
+        <div class="media-feed">
+            <div class="intel-photo">
+                <img src="iran_drone_center.png">
+                <div class="intel-label">IR-RECON: TEHRAN CMD</div>
+            </div>
+            <div class="intel-photo">
+                <img src="us_navy_fleet.png">
+                <div class="intel-label">OPS-RECON: USS LINCOLN</div>
+            </div>
+            <div class="intel-photo">
+                <img src="ras_laffan_destruction_low_earth_orbit_1776106461620.png">
+                <div class="intel-label">SAT-RECON: RAS LAFFAN</div>
+            </div>
+            <div class="intel-photo" style="border: 2px solid #fff;">
+                <img src="suez_combat.png">
+                <div class="intel-label" style="background: #fff; color: #000;">RECON-ALPHA: SUEZ COMBAT</div>
+            </div>
+        </div>
+
+        <div class="timeline-container">
+            <div class="log-entry">
+                <div class="log-time">23:00 CET</div>
+                <div class="log-msg"><b>ISRAEL:</b> IDF greift russische Überwassereinheiten vor Port Said an.</div>
+            </div>
+            <div class="log-entry">
+                <div class="log-time">22:55 CET</div>
+                <div class="log-msg"><b>RUSSIA:</b> Schwerer Beschuss ägyptischer Küstenbatterien am Suez.</div>
+            </div>
+        </div>
+    </aside>
+
+    <footer>
+        <div class="breaking-tag">BREAKING</div>
+        <div class="ticker-move">
+            <span class="ticker-text">+++ ISRAELISCHE F-35 GREIFEN RUSSISCHE FLOTTE AM SUEZ AN +++ GEFECHTE ZWISCHEN IDF UND RUSSLAND +++ WELTKRIEG-GEFAHR EXTREM +++</span>
+            <span class="ticker-text">+++ ISRAELISCHE F-35 GREIFEN RUSSISCHE FLOTTE AM SUEZ AN +++ GEFECHTE ZWISCHEN IDF UND RUSSLAND +++ WELTKRIEG-GEFAHR EXTREM +++</span>
+        </div>
+    </footer>
+</div>
+
+<script>
+    function activateAudio() {
+        const music = document.getElementById('bg-music');
+        music.play();
+        document.getElementById('audio-btn').style.display = 'none';
+    }
+
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('clock').innerText = now.toTimeString().split(' ')[0] + ' CET';
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
+
+</body>
+</html>
+
+

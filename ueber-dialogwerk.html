@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über Dialogwerk | Dialogwerk Niedersachsen</title>
+    <link rel="stylesheet" href="_astro/_slug_.DihIXEwM.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        .custom-grid { display: flex; flex-direction: column; gap: 3rem; }
+        @media (min-width: 1024px) {
+            .custom-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 4rem; }
+            .content-left { grid-column: span 7 / span 7; }
+            .sidebar-right { grid-column: span 5 / span 5; position: sticky; top: 6rem; }
+        }
+        .black-card {
+            background-color: #111111 !important; color: white !important; border-radius: 2.5rem; padding: 2.5rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .cta-button {
+            display: block; width: 100%; padding: 1.25rem; background-color: #1E40AF; color: white; text-align: center; font-weight: bold; border-radius: 1rem; text-decoration: none; margin-top: 2.5rem; transition: background 0.2s;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-white">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-warm-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <svg viewBox="0 0 48 48" class="w-9 h-9"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#162F85"/></linearGradient></defs><path d="M6 8C6 5.79 7.79 4 10 4H38C40.21 4 42 5.79 42 8V30C42 32.21 40.21 34 38 34H18L10 42V34H10C7.79 34 6 32.21 6 30V8Z" fill="url(#g)"/><text x="24" y="24" text-anchor="middle" dominant-baseline="central" fill="white" font-family="Inter,sans-serif" font-weight="700" font-size="14">DN</text></svg>
+                    <div class="flex flex-col"><span class="font-bold text-warm-900 text-lg">Dialogwerk</span><span class="font-medium text-warm-400 text-xs text-primary-600">Niedersachsen</span></div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 pb-12 lg:pb-24">
+        <div class="bg-warm-50/50 border-b border-warm-100 mb-12 lg:mb-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <nav class="flex items-center gap-2 text-sm text-warm-400 mb-6 font-medium">
+                    <a href="index.html" class="hover:text-primary-600 transition-colors">Startseite</a>
+                    <span>/</span>
+                    <span class="text-warm-900 font-bold italic">Über Dialogwerk</span>
+                </nav>
+                <h1 class="text-4xl lg:text-5xl font-extrabold text-warm-900 leading-tight tracking-tight max-w-4xl italic">
+                    Dialogwerk Niedersachsen: <br><span class="text-primary-600">Expertise trifft Haltung</span>
+                </h1>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="custom-grid">
+                <div class="content-left">
+                    <div class="prose prose-lg text-warm-600 leading-relaxed space-y-6 max-w-none">
+                        <p class="text-xl font-bold text-warm-900">Dialogwerk Niedersachsen steht für eine neue Qualität der Gremienberatung. Wir verknüpfen fundierte rechtliche Expertise mit modernen Methoden des Coaching und der Mediation.</p>
+                        <p>Mein Ziel ist es, Gremien nicht nur in ihren Rechten zu stärken, sondern sie handlungsfähig für die Herausforderungen der modernen Arbeitswelt zu machen. Ob Digitalisierung, Inklusion oder Krisenmanagement – wir liefern die Werkzeuge für eine Mitbestimmung auf Augenhöhe.</p>
+                        <p>Wir arbeiten bundesweit für Betriebsräte, Schwerbehindertenvertretungen und Personalräte aller Branchen.</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-right">
+                    <div class="black-card text-center">
+                        <h3 class="text-xl font-bold mb-4">Ihr Partner für den Wandel</h3>
+                        <p class="text-sm text-warm-400 mb-8 leading-relaxed">Vertrauen, Diskretion und fachliche Exzellenz sind die Grundpfeiler meiner Arbeit.</p>
+                        <a href="kontakt.html" class="cta-button">Jetzt kennenlernen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-warm-900 py-12 text-center text-warm-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2026 Dialogwerk Niedersachsen. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
