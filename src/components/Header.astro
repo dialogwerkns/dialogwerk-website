@@ -31,4 +31,24 @@ const currentPath = Astro.url.pathname;
     </nav>
 
     <!-- Mobile menu button -->
-    <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-400" aria-label="Men
+    <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-400" aria-label="Menue oeffnen">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile nav -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 bg-zinc-900 border-t border-white/5">
+    {navLinks.map(link => (
+      <a href={link.href} class="block py-2 text-zinc-400 hover:text-teal-400 font-medium">{link.label}</a>
+    ))}
+    <a href="/termin" class="block mt-2 bg-teal-500 text-zinc-950 text-center font-bold px-4 py-2 rounded-lg">Termin anfragen</a>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>
