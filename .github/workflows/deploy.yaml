@@ -1,22 +1,22 @@
 name: Deploy Now
 on:
-  push:
-      branches:
-            - main
-              workflow_dispatch:
+push:
+branches:
+- main
+workflow_dispatch:
 
-              jobs:
-                build:
-                    runs-on: ubuntu-latest
-                        steps:
-                              - uses: actions/checkout@v4
-                                    - uses: actions/setup-node@v4
-                                            with:
-                                                      node-version: 20
-                                                            - run: npm install
-                                                                  - run: npm run build
-                                                                        - uses: ionos-deploy-now/deploy-to-ionos@v2
-                                                                                with:
-                                                                                          project-id: '6aa259cf-a46e-46e7-a330-6f620219305e'
-                                                                                                    service-id: ${{ secrets.IONOS_SERVICE_ID }}
-                                                                                                    
+jobs:
+build:
+  runs-on: ubuntu-latest
+      steps:
+            - uses: actions/checkout@v4
+                  - uses: actions/setup-node@v4
+                          with:
+                                    node-version: 20
+                                          - run: npm install
+                                                - run: npm run build
+                                                      - uses: ionos-deploy-now/deploy-to-ionos@v2
+                                                              with:
+                                                                        project-id: '6aa259cf-a46e-46e7-a330-6f620219305e'
+                                                                                  service-id: ${{ secrets.IONOS_SERVICE_ID }}
+                                                                                  
