@@ -1,12 +1,16 @@
 name: ionos-deploy-now
-on: [push]
-jobs:
-  deploy:
-      runs-on: ubuntu-latest
-          steps:
-                - uses: actions/checkout@v4
-                      - run: npm install && npm run build
-                            - uses: ionos-deploy-now/deploy-to-ionos@v2
-                                    with:
-                                              project-id: '6aa259cf-a46e-46e7-a330-6f620219305e'
-                                                        service-id: ${{ secrets.IONOS_SERVICE_ID }}
+on:
+  push:
+      branches:
+            - main
+            jobs:
+              deploy:
+                  runs-on: ubuntu-latest
+                      steps:
+                            - uses: actions/checkout@v4
+                                  - run: npm install && npm run build
+                                        - uses: ionos-deploy-now/deploy-to-ionos@v2
+                                                with:
+                                                          project-id: '6aa259cf-a46e-46e7-a330-6f620219305e'
+                                                                    service-id: ${{ secrets.IONOS_SERVICE_ID }}
+                                                                    
